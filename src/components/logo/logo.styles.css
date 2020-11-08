@@ -1,0 +1,10 @@
+.Tilt {
+  background-color: #a4508b;
+  background-image: linear-gradient(to right, #a4508b 0%, #5f0a87 74%);
+}
+.Tilt-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
