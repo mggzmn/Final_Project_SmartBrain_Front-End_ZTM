@@ -1,20 +1,23 @@
 import React from "react";
+import "./faceRecognition.styles.css";
 
-const FaceRecognition = ({ imageUrl }) => {
+const FaceRecognition = ({ imageUrl, box }) => {
   return (
     <div className="center ma">
       <div className="absolute mt2">
-        {imageUrl.length > 0 ? (
-          <img
-            src={imageUrl}
-            alt="faceRecognition"
-            width="500px"
-            height="auto"
-          />
-        ) : null}
+        <img id="inputimage" alt="" src={imageUrl} width="500px" heigh="auto" />
+        <div
+          className="bounding-box"
+          style={{
+            top: box.topRow,
+            right: box.rightCol,
+            bottom: box.bottomRow,
+            left: box.leftCol,
+          }}
+        ></div>
       </div>
     </div>
   );
 };
-//https://res.cloudinary.com/demo/image/upload/l_golden_star,g_north_west,w_20,x_314,y_148/w_500/docs/plain_face.jpg
+
 export default FaceRecognition;
