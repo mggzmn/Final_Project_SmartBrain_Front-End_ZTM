@@ -9,6 +9,30 @@ class Signin extends React.Component {
     };
   }
 
+  onEmailChange = (event) => {
+    this.setState({ signInEmail: event.target.value });
+  };
+  onPasswordChange = (event) => {
+    this.setState({ signInPassword: event.target.value });
+  };
+  onSubmitSignIn = () => {
+    fetch("http://localhost:3001/signin", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPassword,
+      }),
+    })
+      .then((response) => response.json())
+      .then((user) => {
+        if (user.id) {
+          this.props.loadUser(user);
+          this.props.onRouteChange("home");
+        }
+      });
+  };
+
   render() {
     const { onRouteChange } = this.props;
     return (
@@ -22,6 +46,7 @@ class Signin extends React.Component {
                   Email
                 </label>
                 <input
+                  onChange={this.onEmailChange}
                   className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="email"
                   name="email-address"
@@ -33,6 +58,7 @@ class Signin extends React.Component {
                   Password
                 </label>
                 <input
+                  onChange={this.onPasswordChange}
                   className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="password"
                   name="password"
@@ -42,7 +68,7 @@ class Signin extends React.Component {
             </fieldset>
             <div className="">
               <input
-                onClick={() => onRouteChange("home")}
+                onClick={this.onSubmitSignIn}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Sign in"
