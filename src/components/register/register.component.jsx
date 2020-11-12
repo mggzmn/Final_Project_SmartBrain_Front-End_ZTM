@@ -55,7 +55,6 @@ class Register extends React.Component {
                   name="name"
                   id="name"
                   onChange={this.onNameChange}
-                  required
                 />
               </div>
               <div className="mt3">
@@ -81,7 +80,6 @@ class Register extends React.Component {
                   name="password"
                   id="password"
                   onChange={this.onPasswordChange}
-                  required
                 />
               </div>
             </fieldset>
