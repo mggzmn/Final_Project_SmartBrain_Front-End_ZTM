@@ -1,12 +1,12 @@
 {
-  "name": "my-app",
   "homepage": " https://mggzmn.github.io/Final_Project_SmartBrain_Front_and_Back_ZTM/",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/react": "^11.1.2",
+    "@testing-library/user-event": "^12.2.2",
     "clarifai": "^2.9.1",
     "gh-pages": "^3.1.0",
     "react": "^17.0.1",
